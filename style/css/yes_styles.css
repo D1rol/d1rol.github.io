@@ -2,7 +2,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 120vh;
+    height: 100vh;
     background-color: #F8C8DC;
 }
 
@@ -42,7 +42,6 @@ body {
 
 .buttons {
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
     margin-top: 20px;
