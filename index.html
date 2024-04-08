@@ -5,21 +5,19 @@
     <script>
        onload = function () {
             var d = document;
-            // フェードイン
-            function feedin (feed, speed) {
-                var filter = 0;
-                feed.style.opacity = 0;
-                feed.style.MozOpacity = 0;
+            // Функция для плавного появления элемента
+            function fadeIn(element, speed) {
+                var opacity = 0;
+                element.style.opacity = 0;
                 var timer = setInterval(function () {
-                    filter ++;
-                    feed.style.opacity = (filter / 10);
-                    feed.style.MozOpacity = (filter / 10);
-                    if (filter == 10) {
+                    opacity += 0.1;
+                    element.style.opacity = opacity;
+                    if (opacity >= 1) {
                         clearInterval(timer);
                     } 
-                },speed);
+                }, speed);
             }
-            // I LOVE YOU
+            // Массивы индексов для каждой буквы сообщения "I LOVE YOU" и "ALEKSANDRA, I LOVE YOU"
             var str = [
                 [36,37,38,72,107,142,176,177,178],
                 [41,76,111,146,181,182,183],
@@ -30,7 +28,7 @@
                 [202,167,132,97,62,63,64,99,134,169,204],
                 [203,66,101,136,171,206,207,208,173,138,103,68]
             ];
-            // ブロック表示
+            // Отображение блоков
             for (i=0;i<245;i++) {
                 var box = d.createElement('div');
                 with (d.body.appendChild(box).style) {
@@ -42,12 +40,12 @@
                     float = 'left';
                 }   
             }
-            // メッセージ表示
+            // Отображение сообщения
             var mess = d.getElementsByTagName('div');
             var i = 0, j = 0;
             setInterval(function () {
-                feedin(mess[str[i][j]], 25);
-                mess[str[i][j]].style.background = '#F39'
+                fadeIn(mess[str[i][j]], 25);
+                mess[str[i][j]].style.background = '#F39'; // Цвет фона для подсветки
                 j++;
                 if (i == str.length) { clearInterval(timer); }
                 if (j == str[i].length) { i++; j = 0; }
